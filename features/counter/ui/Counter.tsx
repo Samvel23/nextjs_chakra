@@ -1,30 +1,34 @@
 "use client";
 
 import { useState } from "react";
-import { Button, HStack, Text, Box } from "@chakra-ui/react";
+import { useTranslations } from "next-intl";
+import styles from "./Counter.module.scss";
 
-export function Counter() {
+export const Counter = () => {
   const [count, setCount] = useState(0);
+  const translate = useTranslations("Counter");
 
   return (
-    <Box
-      p="6"
-      borderWidth="1px"
-      borderColor="border"
-      rounded="lg"
-      bg="bg.panel"
-    >
-      <Text fontSize="lg" fontWeight="semibold" mb="4">
-        Interactive Counter Feature
-      </Text>
-      <HStack gap="4">
-        <Button colorPalette="blue" onClick={() => setCount(count + 1)}>
-          Count: {count}
-        </Button>
-        <Button variant="outline" onClick={() => setCount(0)}>
-          Reset
-        </Button>
-      </HStack>
-    </Box>
+    <section className={styles.counter}>
+      <h2 className={styles.title}>
+        {translate("title")}
+      </h2>
+      <div className={styles.actions}>
+        <button
+          className={styles.countButton}
+          type="button"
+          onClick={() => setCount(count + 1)}
+        >
+          {translate("count", { count })}
+        </button>
+        <button
+          className={styles.resetButton}
+          type="button"
+          onClick={() => setCount(0)}
+        >
+          {translate("reset")}
+        </button>
+      </div>
+    </section>
   );
-}
+};

@@ -1,27 +1,23 @@
 "use client";
 
-import { Box, VStack, Link as ChakraLink } from "@chakra-ui/react";
+import { useTranslations } from "next-intl";
 import Link from "next/link";
+import styles from "./Sidebar.module.scss";
+import { Box } from "@chakra-ui/react";
 
-export function Sidebar() {
+export const Sidebar = () => {
+  const translate = useTranslations("Sidebar");
+
   return (
-    <Box
-      as="aside"
-      w="64"
-      h="full"
-      borderRightWidth="1px"
-      borderColor="border"
-      p="6"
-      bg="bg.panel"
-    >
-      <VStack align="stretch" gap="4">
-        <ChakraLink asChild fontWeight="medium">
-          <Link href="/">Dashboard</Link>
-        </ChakraLink>
-        <ChakraLink asChild fontWeight="medium">
-          <Link href="/items">Items</Link>
-        </ChakraLink>
-      </VStack>
+    <Box as="aside" className={styles.sidebar}>
+      <Box as="nav" className={styles.navigation}>
+        <Link className={styles.link} href="/">
+          {translate("dashboard")}
+        </Link>
+        <Link className={styles.link} href="/items">
+          {translate("items")}
+        </Link>
+      </Box>
     </Box>
   );
-}
+};

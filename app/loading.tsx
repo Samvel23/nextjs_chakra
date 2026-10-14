@@ -1,20 +1,17 @@
-import { Flex, Spinner, Text, VStack } from "@chakra-ui/react";
+"use client";
 
-export default function Loading() {
+import { useTranslations } from "next-intl";
+import styles from "./loading.module.scss";
+
+const Loading = () => {
+  const translate = useTranslations("Loading");
+
   return (
-    <Flex
-      flex="1"
-      minH="100vh"
-      align="center"
-      justify="center"
-      bg="bg.canvas"
-      role="status"
-      aria-live="polite"
-    >
-      <VStack gap="4">
-        <Spinner size="xl" color="blue.500" />
-        <Text color="fg.muted">Loading your workspace...</Text>
-      </VStack>
-    </Flex>
+    <div className={styles.loading} role="status" aria-live="polite">
+      <span className={styles.spinner} aria-hidden="true" />
+      <p className={styles.message}>{translate("message")}</p>
+    </div>
   );
-}
+};
+
+export default Loading;

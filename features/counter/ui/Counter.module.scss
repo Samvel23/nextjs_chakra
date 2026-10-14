@@ -1,0 +1,53 @@
+.counter {
+  padding: 1.5rem;
+  background-color: var(--background);
+  border: 1px solid color-mix(in srgb, var(--foreground) 12%, transparent);
+  border-radius: 0.5rem;
+}
+
+.title {
+  margin: 0 0 1rem;
+  color: var(--foreground);
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+}
+
+.countButton,
+.resetButton {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid transparent;
+  border-radius: 0.375rem;
+  font: inherit;
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: 2px solid #3182ce;
+    outline-offset: 2px;
+  }
+}
+
+.countButton {
+  color: #fff;
+  background-color: #3182ce;
+
+  &:hover {
+    background-color: #2b6cb0;
+  }
+}
+
+.resetButton {
+  color: var(--foreground);
+  background-color: transparent;
+  border-color: color-mix(in srgb, var(--foreground) 18%, transparent);
+
+  &:hover {
+    background-color: color-mix(in srgb, var(--foreground) 6%, transparent);
+  }
+}

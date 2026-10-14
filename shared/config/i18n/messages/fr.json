@@ -1,0 +1,37 @@
+{
+  "Header": {
+    "title": "Mon modèle FSD",
+    "notifications": "Notifications",
+    "toggleTheme": "Changer de thème",
+    "switchToFrench": "Passer en français",
+    "switchToEnglish": "Passer en anglais",
+    "nextLanguage": "EN"
+  },
+  "Sidebar": {
+    "dashboard": "Tableau de bord",
+    "items": "Éléments"
+  },
+  "Dashboard": {
+    "welcome": "Bon retour !",
+    "description": "Votre architecture Feature-Sliced Design est prête."
+  },
+  "Counter": {
+    "title": "Compteur interactif",
+    "count": "Compteur : {count}",
+    "reset": "Réinitialiser"
+  },
+  "Loading": {
+    "message": "Chargement de votre espace de travail..."
+  },
+  "Error": {
+    "title": "Une erreur s’est produite",
+    "message": "Impossible de charger cette page. Veuillez réessayer.",
+    "retry": "Réessayer"
+  },
+  "NotFound": {
+    "code": "ERREUR 404",
+    "title": "Page introuvable",
+    "message": "La page recherchée n’existe pas ou a peut-être été déplacée.",
+    "home": "Retour au tableau de bord"
+  }
+}

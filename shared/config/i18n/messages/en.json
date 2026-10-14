@@ -1,0 +1,37 @@
+{
+  "Header": {
+    "title": "My FSD Boilerplate",
+    "notifications": "Notifications",
+    "toggleTheme": "Toggle theme",
+    "switchToFrench": "Switch to French",
+    "switchToEnglish": "Switch to English",
+    "nextLanguage": "FR"
+  },
+  "Sidebar": {
+    "dashboard": "Dashboard",
+    "items": "Items"
+  },
+  "Dashboard": {
+    "welcome": "Welcome back!",
+    "description": "Your Feature-Sliced Design architecture is ready."
+  },
+  "Counter": {
+    "title": "Interactive counter",
+    "count": "Count: {count}",
+    "reset": "Reset"
+  },
+  "Loading": {
+    "message": "Loading your workspace..."
+  },
+  "Error": {
+    "title": "Something went wrong",
+    "message": "We couldn't load this page. Please try again.",
+    "retry": "Try again"
+  },
+  "NotFound": {
+    "code": "ERROR 404",
+    "title": "Page not found",
+    "message": "The page you're looking for doesn't exist or may have moved.",
+    "home": "Back to dashboard"
+  }
+}

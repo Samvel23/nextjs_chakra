@@ -1,40 +1,32 @@
 "use client";
 
-import { Button, Flex, Heading, Text, VStack } from "@chakra-ui/react";
+import { useEffect } from "react";
+import { useTranslations } from "next-intl";
+import styles from "./error.module.scss";
 
-interface ErrorProps {
+interface IErrorProps {
   error: Error & { digest?: string };
   retry: () => void;
 }
 
-export default function Error({ retry }: ErrorProps) {
+const Error = ({ error, retry }: IErrorProps) => {
+  const translate = useTranslations("Error");
+
+  useEffect(() => {
+    console.error(error);
+  }, [error]);
+
   return (
-    <Flex
-      flex="1"
-      minH="100vh"
-      align="center"
-      justify="center"
-      bg="bg.canvas"
-      px="6"
-    >
-      <VStack
-        gap="4"
-        maxW="md"
-        textAlign="center"
-        bg="bg.panel"
-        borderWidth="1px"
-        borderColor="border"
-        borderRadius="xl"
-        p={{ base: "6", md: "10" }}
-      >
-        <Heading size="xl">Something went wrong</Heading>
-        <Text color="fg.muted">
-          We couldn&apos;t load this page. Please try again.
-        </Text>
-        <Button colorPalette="blue" onClick={retry}>
-          Try again
-        </Button>
-      </VStack>
-    </Flex>
+    <main className={styles.errorPage}>
+      <section className={styles.errorCard}>
+        <h1 className={styles.title}>{translate("title")}</h1>
+        <p className={styles.message}>{translate("message")}</p>
+        <button className={styles.retryButton} type="button" onClick={retry}>
+          {translate("retry")}
+        </button>
+      </section>
+    </main>
   );
-}
+};
+
+export default Error;

@@ -1,24 +1,22 @@
-import { Header } from "@/widgets/header/ui/Header";
-import { Sidebar } from "@/entities/sidebar/ui/Sidebar";
-import { Counter } from "@/features/counter/ui/Counter";
-import { Box, Flex, Heading, Text } from "@chakra-ui/react";
+import { Header } from "@/entities/header";
+import { Sidebar } from "@/entities/sidebar";
+import { Counter } from "@/features/counter";
+import { DashboardWelcome } from "@/features/dashboard";
+import styles from "./page.module.scss";
 
-export default function Page() {
+const Page = () => {
   return (
-    <Flex h="screen" overflow="hidden">
+    <div className={styles.dashboard}>
       <Sidebar />
-      <Flex direction="column" flex="1" overflow="hidden">
+      <div className={styles.workspace}>
         <Header />
-        <Box as="main" flex="1" p="8" overflowY="auto" bg="bg.canvas">
-          <Heading size="xl" mb="2">
-            Welcome Back!
-          </Heading>
-          <Text color="fg.muted" mb="6">
-            Your Feature-Sliced Design architecture is fully set up and ready.
-          </Text>
+        <main className={styles.main}>
+          <DashboardWelcome />
           <Counter />
-        </Box>
-      </Flex>
-    </Flex>
+        </main>
+      </div>
+    </div>
   );
-}
+};
+
+export default Page;

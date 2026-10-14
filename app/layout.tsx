@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import styles from "./layout.module.scss";
 import { Provider } from "@/shared/config/provider";
+import { LocaleProvider } from "@/shared/config/i18n";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -18,16 +20,18 @@ export const metadata: Metadata = {
   description: "A Next.js project with Chakra UI and TypeScript",
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
-  return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-      suppressHydrationWarning
-    >
-      <body className="min-h-full flex flex-col">
-        <Provider>{children}</Provider>
-      </body>
-    </html>
-  );
-}
+const RootLayout = ({ children }: LayoutProps<"/">) => (
+  <html
+    lang="en"
+    className={`${geistSans.variable} ${geistMono.variable} ${styles.html}`}
+    suppressHydrationWarning
+  >
+    <body className={styles.body}>
+      <Provider>
+        <LocaleProvider>{children}</LocaleProvider>
+      </Provider>
+    </body>
+  </html>
+);
+
+export default RootLayout;

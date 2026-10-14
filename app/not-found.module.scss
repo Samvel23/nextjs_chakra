@@ -1,0 +1,56 @@
+.notFoundPage {
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+  padding: 1.5rem;
+  background-color: var(--background);
+}
+
+.notFoundCard {
+  display: flex;
+  width: min(100%, 32rem);
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: clamp(1.5rem, 5vw, 2.5rem);
+  text-align: center;
+  background-color: var(--background);
+  border: 1px solid color-mix(in srgb, var(--foreground) 12%, transparent);
+  border-radius: 0.75rem;
+}
+
+.code {
+  margin: 0;
+  color: #3182ce;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.title {
+  margin: 0;
+  color: var(--foreground);
+  font-size: 1.5rem;
+}
+
+.message {
+  margin: 0;
+  color: color-mix(in srgb, var(--foreground) 68%, transparent);
+}
+
+.homeLink {
+  padding: 0.625rem 1rem;
+  color: #fff;
+  background-color: #3182ce;
+  border-radius: 0.375rem;
+  font-weight: 500;
+  text-decoration: none;
+
+  &:hover {
+    background-color: #2b6cb0;
+  }
+
+  &:focus-visible {
+    outline: 2px solid #3182ce;
+    outline-offset: 2px;
+  }
+}
