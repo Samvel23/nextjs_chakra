@@ -7,10 +7,11 @@ import {
   useSyncExternalStore,
   type ReactNode,
 } from "react";
-import { NextIntlClientProvider } from "next-intl";
-import englishMessages from "./messages/en.json";
-import frenchMessages from "./messages/fr.json";
+
 import { isLocale, type Locale } from "./model";
+import frenchMessages from "./messages/fr.json";
+import englishMessages from "./messages/en.json";
+import { NextIntlClientProvider } from "next-intl";
 
 interface LocaleSelection {
   locale: Locale;

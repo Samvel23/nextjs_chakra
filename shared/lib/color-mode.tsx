@@ -30,6 +30,12 @@ export const ColorMode = {
 
 export type TColorMode = (typeof ColorMode)[keyof typeof ColorMode];
 
+const getColorModeValue = <T,>(
+  colorMode: string | undefined,
+  light: T,
+  dark: T,
+): T => (colorMode === ColorMode.dark ? dark : light);
+
 export interface IUseColorModeReturn {
   colorMode: TColorMode;
   setColorMode: (colorMode: TColorMode) => void;
@@ -40,7 +46,9 @@ export const useColorMode = () => {
   const { resolvedTheme, setTheme, forcedTheme } = useTheme();
   const colorMode = forcedTheme || resolvedTheme;
   const toggleColorMode = () => {
-    setTheme(resolvedTheme === "dark" ? "light" : "dark");
+    setTheme(
+      getColorModeValue(resolvedTheme, ColorMode.dark, ColorMode.light),
+    );
   };
   return {
     colorMode: colorMode as TColorMode,
@@ -51,12 +59,12 @@ export const useColorMode = () => {
 
 export const useColorModeValue = <T,>(light: T, dark: T) => {
   const { colorMode } = useColorMode();
-  return colorMode === "dark" ? dark : light;
+  return getColorModeValue(colorMode, light, dark);
 };
 
 export const ColorModeIcon = () => {
   const { colorMode } = useColorMode();
-  return colorMode === "dark" ? <LuMoon /> : <LuSun />;
+  return getColorModeValue(colorMode, <LuSun />, <LuMoon />);
 };
 
 type IColorModeButtonProps = Omit<IconButtonProps, "aria-label">;
@@ -91,17 +99,15 @@ ColorModeButton.displayName = "ColorModeButton";
 
 export const LightMode = React.forwardRef<HTMLSpanElement, SpanProps>(
   (props, ref) => {
-    return (
-      <Span
-        color="fg"
-        display="contents"
-        className="chakra-theme light"
-        colorPalette="gray"
-        colorScheme="light"
-        ref={ref}
-        {...props}
-      />
-    );
+    <Span
+      color="fg"
+      display="contents"
+      className="chakra-theme light"
+      colorPalette="gray"
+      colorScheme="light"
+      ref={ref}
+      {...props}
+    />;
   },
 );
 LightMode.displayName = "LightMode";

@@ -6,10 +6,8 @@ import {
   type IColorModeProviderProps,
 } from "../lib/color-mode";
 
-export const Provider = (props: IColorModeProviderProps) => {
-  return (
-    <ColorModeProvider {...props}>
-      <ChakraProvider value={defaultSystem}>{props.children}</ChakraProvider>
-    </ColorModeProvider>
-  );
-};
+export const Provider = (props: IColorModeProviderProps) => (
+  <ColorModeProvider {...props}>
+    <ChakraProvider value={defaultSystem}>{props.children}</ChakraProvider>
+  </ColorModeProvider>
+);
