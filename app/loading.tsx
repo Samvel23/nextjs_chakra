@@ -1,17 +1,25 @@
 "use client";
 
-import { useTranslations } from "next-intl";
-import styles from "./loading.module.scss";
+import { Typography } from "@/shared/ui";
+import styles from "./styles/loading.module.scss";
 
-const Loading = () => {
-  const translate = useTranslations("Loading");
-
+export default function Loading() {
   return (
-    <div className={styles.loading} role="status" aria-live="polite">
-      <span className={styles.spinner} aria-hidden="true" />
-      <p className={styles.message}>{translate("message")}</p>
+    <div
+      className={styles.loading}
+      role="status"
+      aria-live="polite"
+      aria-label="Loading content"
+    >
+      <div className={styles["loading__spinner-wrapper"]}>
+        <span className={styles["loading__spinner"]} aria-hidden="true" />
+        <div className={styles["loading__spinner-glow"]} aria-hidden="true" />
+      </div>
+      <Typography
+        as="p"
+        className={styles["loading__message"]}
+        value="Loading.message"
+      />
     </div>
   );
-};
-
-export default Loading;
+}

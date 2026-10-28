@@ -3,7 +3,9 @@ export const SortDirection = {
   DESC: "desc",
 } as const;
 
-export type TSortDirection = (typeof SortDirection)[keyof typeof SortDirection];
+export type TSortDirection<
+  T extends Record<string, string> = typeof SortDirection,
+> = T[keyof T];
 
 export interface IPaginationParams {
   page: number;

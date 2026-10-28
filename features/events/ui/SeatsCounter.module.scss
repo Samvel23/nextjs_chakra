@@ -1,0 +1,58 @@
+.seats-counter {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 0; // Removed margin-top to eliminate the awkward top gap
+
+  &__count {
+    margin: 0;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--chakra-colors-chakra-body-text, #1a202c);
+  }
+
+  &__error {
+    margin: 0;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--chakra-colors-red-500, #e53e3e);
+  }
+
+  &__button {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: 12px;
+    cursor: pointer;
+
+    /* High-contrast theme adaptation */
+    background-color: var(--chakra-colors-chakra-body-text, #1a202c);
+    color: var(--chakra-colors-chakra-body-bg, #fff);
+    border: 1px solid var(--chakra-colors-chakra-body-text, #1a202c);
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+
+    &:hover:not(:disabled) {
+      opacity: 0.92;
+      transform: translateY(-1px);
+    }
+
+    &:active:not(:disabled) {
+      transform: translateY(0);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--chakra-colors-teal-500, #319795);
+      outline-offset: 2px;
+    }
+
+    /* Disabled State */
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.4;
+      background-color: var(--chakra-colors-gray-200, #edf2f7);
+      color: var(--chakra-colors-gray-500, #a0aec0);
+      border-color: var(--chakra-colors-gray-200, #edf2f7);
+    }
+  }
+}

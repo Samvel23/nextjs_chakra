@@ -1,0 +1,21 @@
+@function spacing($multiplier) {
+  @return $multiplier * 4px;
+}
+
+@mixin focus-ring($color: var(--color-focus-ring)) {
+  &:focus-visible {
+    outline: 2px solid $color;
+    outline-offset: 2px;
+  }
+}
+
+@mixin interactive-background($color: var(--color-hover-background)) {
+  &:hover {
+    background-color: $color;
+  }
+}
+
+%flex-row-center {
+  display: flex;
+  align-items: center;
+}

@@ -1,0 +1,87 @@
+.login-form {
+  display: grid;
+  width: min(100%, 420px);
+  gap: 18px;
+  padding: 28px;
+  background: var(--background);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+
+  &__title {
+    margin: 0;
+    color: var(--foreground);
+    font-size: 26px;
+  }
+
+  &__description,
+  &__demo {
+    margin: 0;
+    color: var(--color-muted);
+    line-height: 1.5;
+  }
+
+  &__field {
+    display: grid;
+    gap: 8px;
+  }
+
+  &__label {
+    color: var(--foreground);
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  &__input {
+    padding: 12px 14px;
+    color: var(--foreground);
+    background: var(--background);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    font: inherit;
+
+    &:focus-visible {
+      outline: none;
+      border-color: var(--foreground);
+      box-shadow: 0 0 0 1px var(--foreground);
+    }
+  }
+
+  &__error {
+    margin: 0;
+    color: #e53e3e;
+    font-size: 14px;
+  }
+
+  &__demo {
+    margin: 0;
+  }
+
+  &__submit {
+    padding: 12px 16px;
+    color: var(--background);
+    background: var(--foreground);
+    border: 1px solid var(--foreground);
+    border-radius: 8px;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    transition:
+      opacity 0.15s ease,
+      transform 0.15s ease;
+
+    &:hover:not(:disabled) {
+      opacity: 0.9;
+      transform: translateY(-1px);
+    }
+
+    &:focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 2px var(--foreground);
+    }
+
+    &:disabled {
+      cursor: wait;
+      opacity: 0.5;
+    }
+  }
+}

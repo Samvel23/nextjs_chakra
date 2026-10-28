@@ -1,8 +1,21 @@
 import { getRequestConfig } from "next-intl/server";
+import { cookies } from "next/headers";
+import { isLocale } from "./model";
 
-const getRequestConfiguration = getRequestConfig(async () => ({
-  locale: "en",
-  messages: (await import("./messages/en.json")).default,
-}));
+export default getRequestConfig(async () => {
+  let locale = "en";
+  try {
+    const cookieStore = await cookies();
+    const localeCookie = cookieStore.get("preferred-locale")?.value;
+    if (isLocale(localeCookie)) {
+      locale = localeCookie;
+    }
+  } catch {
+    // Fallback during static prerendering when request cookies aren't present
+  }
 
-export default getRequestConfiguration;
+  return {
+    locale,
+    messages: (await import(`./messages/${locale}.json`)).default,
+  };
+});

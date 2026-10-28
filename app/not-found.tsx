@@ -1,24 +1,32 @@
 "use client";
 
-import { useTranslations } from "next-intl";
 import Link from "next/link";
-import styles from "./not-found.module.scss";
+import { Typography } from "@/shared/ui";
+import styles from "./styles/not-found.module.scss";
 
-const NotFound = () => {
-  const translate = useTranslations("NotFound");
-
-  return (
-    <main className={styles.notFoundPage}>
-      <section className={styles.notFoundCard}>
-        <p className={styles.code}>{translate("code")}</p>
-        <h1 className={styles.title}>{translate("title")}</h1>
-        <p className={styles.message}>{translate("message")}</p>
-        <Link className={styles.homeLink} href="/">
-          {translate("home")}
+const NotFound = () => (
+  <main className={styles["not-found-page"]}>
+      <section className={styles["not-found-page__card"]}>
+        <Typography
+          as="p"
+          className={styles["not-found-page__code"]}
+          value="NotFound.code"
+        />
+        <Typography
+          as="h1"
+          className={styles["not-found-page__title"]}
+          value="NotFound.title"
+        />
+        <Typography
+          as="p"
+          className={styles["not-found-page__message"]}
+          value="NotFound.message"
+        />
+        <Link className={styles["not-found-page__home-link"]} href="/events">
+          <Typography value="Events.backToEvents" />
         </Link>
       </section>
-    </main>
-  );
-};
+  </main>
+);
 
 export default NotFound;

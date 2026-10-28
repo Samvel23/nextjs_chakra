@@ -1,0 +1,28 @@
+.color-mode {
+  &__button {
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+    color: var(--foreground);
+    background: transparent;
+    border: 1px solid var(--color-border-subtle);
+    border-radius: 6px;
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  &__skeleton {
+    width: 40px;
+    height: 40px;
+    border-radius: 6px;
+  }
+
+  &__light,
+  &__dark {
+    display: contents;
+    color: var(--foreground);
+  }
+}

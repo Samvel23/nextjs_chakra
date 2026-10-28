@@ -1,0 +1,60 @@
+.dashboard-activity {
+  padding: 24px;
+  background: var(--card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+
+  &__title {
+    margin: 0 0 20px;
+    font-size: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-muted);
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--color-border-subtle);
+    font-size: 13px;
+    color: var(--foreground);
+
+    &:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    span {
+      font-weight: 500;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    time {
+      flex-shrink: 0;
+      color: var(--color-muted);
+      font-size: 12px;
+      font-variant-numeric: tabular-nums;
+    }
+  }
+
+  &__empty {
+    margin: 0;
+    font-size: 13px;
+    color: var(--color-muted);
+  }
+}

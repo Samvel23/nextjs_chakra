@@ -1,32 +1,35 @@
 "use client";
 
 import { useState } from "react";
-import { useTranslations } from "next-intl";
+
+import { Typography } from "@/shared/ui";
+
 import styles from "./Counter.module.scss";
 
 export const Counter = () => {
   const [count, setCount] = useState(0);
-  const translate = useTranslations("Counter");
 
   return (
     <section className={styles.counter}>
-      <h2 className={styles.title}>
-        {translate("title")}
-      </h2>
-      <div className={styles.actions}>
+      <Typography
+        as="h2"
+        className={styles["counter__title"]}
+        value="Counter.title"
+      />
+      <div className={styles["counter__actions"]}>
         <button
-          className={styles.countButton}
+          className={`${styles["counter__button"]} ${styles["counter__button--count"]}`}
           type="button"
           onClick={() => setCount(count + 1)}
         >
-          {translate("count", { count })}
+          <Typography value="Counter.count" values={{ count }} />
         </button>
         <button
-          className={styles.resetButton}
+          className={`${styles["counter__button"]} ${styles["counter__button--reset"]}`}
           type="button"
           onClick={() => setCount(0)}
         >
-          {translate("reset")}
+          <Typography value="Counter.reset" />
         </button>
       </div>
     </section>

@@ -1,53 +1,47 @@
+@use "@/shared/assets/styles/mixins" as *;
+
 .counter {
-  padding: 1.5rem;
+  padding: spacing(6);
+  border-radius: 8px;
   background-color: var(--background);
-  border: 1px solid color-mix(in srgb, var(--foreground) 12%, transparent);
-  border-radius: 0.5rem;
-}
+  border: 1px solid var(--color-border);
 
-.title {
-  margin: 0 0 1rem;
-  color: var(--foreground);
-  font-size: 1.125rem;
-  font-weight: 600;
-}
-
-.actions {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 1rem;
-}
-
-.countButton,
-.resetButton {
-  padding: 0.5rem 0.75rem;
-  border: 1px solid transparent;
-  border-radius: 0.375rem;
-  font: inherit;
-  cursor: pointer;
-
-  &:focus-visible {
-    outline: 2px solid #3182ce;
-    outline-offset: 2px;
+  &__title {
+    font-size: 18px;
+    margin: 0 0 spacing(4);
+    font-weight: 600;
+    color: var(--foreground);
   }
-}
 
-.countButton {
-  color: #fff;
-  background-color: #3182ce;
-
-  &:hover {
-    background-color: #2b6cb0;
+  &__actions {
+    @extend %flex-row-center;
+    gap: spacing(4);
   }
-}
 
-.resetButton {
-  color: var(--foreground);
-  background-color: transparent;
-  border-color: color-mix(in srgb, var(--foreground) 18%, transparent);
+  &__button {
+    padding: spacing(2) spacing(3);
+    border: 1px solid transparent;
+    border-radius: 6px;
+    font: inherit;
+    cursor: pointer;
 
-  &:hover {
-    background-color: color-mix(in srgb, var(--foreground) 6%, transparent);
+    @include focus-ring;
+
+    &--count {
+      color: var(--color-white);
+      background-color: var(--color-primary);
+
+      &:hover {
+        background-color: var(--color-primary-hover);
+      }
+    }
+
+    &--reset {
+      color: var(--foreground);
+      background-color: transparent;
+      border-color: var(--color-border-subtle);
+
+      @include interactive-background;
+    }
   }
 }
